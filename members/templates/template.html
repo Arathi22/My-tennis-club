@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" type="text/css" href="{% static 'myfirst.css' %}">
+
+<body>
+
+    <!-- <h1>Hello {{ firstname }}, how are you?</h1> -->
+
+    {% with firstname="Tobias" %}
+    <h1>Hello {{ firstname }}, how are you?</h1>
+    {% endwith %}
+
+    <!-- <ul>
+        {% for x in mymembers %}
+        <li>{{ x.firstname }}</li>
+        {% endfor %}
+    </ul> -->
+
+    <p>In views.py you can see how to create the variable.</p>
+    <p>In template.html you can see how to use the variable.</p>
+
+    {% comment %}
+    <!-- Template Tags -->
+    <!-- {% if greeting == 1 %}
+    <h1>Hello</h1>
+    {% else %}
+    <h1>Bye</h1>
+    {% endif %} -->
+
+    <!-- {% if greeting == 1 %}
+    <h1>Hello</h1>
+    {% elif greeting == 2 %}
+    <h1>Welcome</h1>
+    {% else %}
+    <h1>Goodbye</h1>
+    {% endif %} -->
+
+    <!-- Is equal to. -->
+    <!-- {% if greeting == 2 %}
+    <h1>Hello</h1>
+    {% endif %} -->
+
+    <!-- {% if greeting != 1 %}
+    <h1>Hello</h1>
+    {% endif %} -->
+
+    <!-- {% if greeting < 3 %} <h1>Hello</h1>
+        {% endif %}
+
+        {% if greeting <= 3 %} <h1>Hello</h1>
+            {% endif %} -->
+
+    <!-- {% if greeting > 1 %}
+    <h1>Hello</h1>
+    {% endif %} -->
+
+    <!-- {% if greeting >= 1 %}
+    <h1>Hello</h1>
+    {% endif %} -->
+
+    <!-- {% if greeting == 1 and day == "Friday" %}
+    <h1>Hello Weekend!</h1>
+    {% endif %} -->
+
+    <!-- {% if greeting == 1 or greeting == 5 %}
+    <h1>Hello</h1>
+    {% endif %} -->
+
+    <!-- {% if greeting == 1 and day == "Friday" or greeting == 5 %} -->
+
+    <!-- in
+            To check if a certain item is present in an object. -->
+    <!-- {% if 'Banana' in fruits %}
+            <h1>Hello</h1>
+            {% else %}
+            <h1>Goodbye</h1>
+            {% endif %} -->
+
+    <!-- not in
+To check if a certain item is not present in an object. -->
+    <!-- {% if 'Banana' not in fruits %}
+            <h1>Hello</h1>
+            {% else %}
+            <h1>Goodbye</h1>
+            {% endif %} -->
+
+    <!-- is
+Check if two objects are the same. is operator checks the identity of two objects -->
+    <!-- {% if x is y %}
+            <h1>YES</h1>
+            {% else %}
+            <h1>NO</h1>
+            {% endif %} -->
+
+    <!-- {% if x is not y %}
+    <h1>YES</h1>
+    {% else %}
+    <h1>NO</h1>
+    {% endif %} -->
+
+    <!-- # def testing(request):
+#   mymembers = Member.objects.all().values()
+#   template = loader.get_template('template.html')
+#   context = {
+#     'mymembers': mymembers,
+#   }
+#   return HttpResponse(template.render(context, request))
+
+# def testing(request):
+#   template = loader.get_template('template.html')
+#   context = {
+#     'x': ['Apple', 'Banana', 'Cherry'], 
+#     'y': ['Apple', 'Banana', 'Cherry'], 
+#   }
+#   return HttpResponse(template.render(context, request))  
+
+def testing(request):
+  template = loader.get_template('template.html')
+  context = {
+    'firstname': 'Linus',
+  }
+  return HttpResponse(template.render(context, request))
+  -->
+    {% endcomment %}
+
+    <table border='1'>
+        <tr>
+            <th>ID</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+        {% for x in mymembers %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.firstname }}</td>
+            <td>{{ x.lastname }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>
